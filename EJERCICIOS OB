@@ -11,16 +11,34 @@ import static jdk.jpackage.internal.IOUtils.copyFile;
 
 public class Reverso {
 
+// EJERCICIO 1
+    public static String reverse(String texto) {
+        StringBuilder reversedText = new StringBuilder();
+        for (int i = texto.length() - 1; i >= 0; i--) {
+            reversedText.append(texto.charAt(i));
+        }
+        return reversedText.toString();
+    }
+
+
     public static void main(String[] args) {
 
-        // EJERCICIO 1
+        String texto = "hola mundo";
+        String textoInvertido = reverse(texto);
+        System.out.println(textoInvertido);
+
+    }
+
+    public static void main(String[] args) {
+
+        // EJERCICIO 2
         String[] uno = {"CERO", "UNO"};
 
         for (int i = 0; i < uno.length; i++) {
             System.out.println("Posicion del array " + i + " contiene el valor " + uno[i]);
         }
 
-        // EJERCICIO 2
+        // EJERCICIO 3
         int[][] enteros = new int[2][2];
         enteros[0][0] = 1;
         enteros[0][1] = 2;
@@ -34,7 +52,7 @@ public class Reverso {
             }
         }
 
-        // EJERCICIO 3
+        // EJERCICIO 4
         Vector<Integer> bector = new Vector<>();
 
         bector.add(1);
@@ -48,14 +66,14 @@ public class Reverso {
 
         System.out.println("EL vector ahora es: " + bector);
 
-        // EJERCICIO 4
+        // EJERCICIO 5
 
         // el problema de utilizar un Vector con la capcidad por defecto de 1000 elementos
         // Es que estariamos utilizando mas memoria de la necesaria,
         // ya que el vector aumenta su capacidad de 10 en 10, y eso afectaria al rendimiento del programa
 
 
-        // EJERCICIO 5
+        // EJERCICIO 6
         ArrayList<String> lista = new ArrayList<>();
         lista.add("Uno");
         lista.add("Dos");
@@ -68,7 +86,7 @@ public class Reverso {
             System.out.println("Elemento actual en la lista enlazada: " + elemento);
         }
 
-        // EJERCICIO 6
+        // EJERCICIO 7
         ArrayList<Integer> numeros = new ArrayList<>();
 
 
@@ -88,7 +106,7 @@ public class Reverso {
             System.out.println(numero);
         }
 
-        // EJERCICIO 7
+        // EJERCICIO 8
 
 
         Scanner scanner = new Scanner(System.in);
@@ -122,7 +140,7 @@ public class Reverso {
         }
 
 
-        // EJERCICIO 8
+        // EJERCICIO 9
 
         public static void copyFile (String fileIn; String fileOut){
             try (InputStream inputStream = new FileInputStream(fileIn);
@@ -145,7 +163,7 @@ public class Reverso {
             copyFile(Path.of(fileIn), Path.of(fileOut));
         }
 
-        // EJERCICIO 9
+        // EJERCICIO 10
 
 
         try {
