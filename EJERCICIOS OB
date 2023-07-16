@@ -214,49 +214,45 @@ public class copiarFicheros {
         // EJERCICIO 10
         // Hize un programa que funciona como regisro de pedidos de comida
 
-public class invento {
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class haber {
 
     public static void main(String[] args) {
-        
+        Scanner scanner = new Scanner(System.in);
+        Map<String, Integer> dataStorage = new HashMap<>();
 
-         try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            PrintStream printStream = new PrintStream(System.out);
-            Map<String, List<String>> dataStorage = new HashMap<>();
+        while (true) {
+            try {
+                System.out.println("Ingrese una comida (o 'salir' para terminar):");
+                String comida = scanner.nextLine();
 
-            while (true) {
-                printStream.println("Ingrese una comida (o 'salir' para terminar):");
-                String key = reader.readLine();
-
-                if (key.equalsIgnoreCase("salir")) {
+                if (comida.equalsIgnoreCase("salir")) {
                     break;
                 }
 
-                printStream.println("Ingrese la cantidad:");
-                String value = reader.readLine();
+                System.out.println("Ingrese la cantidad:");
+                String cantidadStr = scanner.nextLine();
+                int cantidad = Integer.parseInt(cantidadStr);
 
-                List<String> values = dataStorage.getOrDefault(key, new ArrayList<>());
-                values.add(value);
-                dataStorage.put(key, values);
-                System.out.println("Pedido");
+                dataStorage.put(comida, cantidad);
+                System.out.println("Pedido registrado.");
+            } catch (NumberFormatException e) {
+                System.out.println("Error: valor incorrecto ingresado. Intente nuevamente.");
             }
-
-            printStream.println("Tu pedido es:");
-            for (Map.Entry<String, List<String>> entry : dataStorage.entrySet()) {
-                String key = entry.getKey();
-                List<String> values = entry.getValue();
-                printStream.println("Comida: " + key);
-                printStream.println("Cantidad:");
-                for (String value : values) {
-                    printStream.println("- " + value);
-                }
-                printStream.println();
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
         }
 
+        System.out.println("Tu pedido es:");
+        for (Map.Entry<String, Integer> entry : dataStorage.entrySet()) {
+            String comida = entry.getKey();
+            int cantidad = entry.getValue();
+            System.out.println("Comida: " + comida);
+            System.out.println("Cantidad: " + cantidad);
+            System.out.println();
         }
+    }
 }
 
