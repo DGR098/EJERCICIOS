@@ -14,12 +14,14 @@ public class Reverso {
 // EJERCICIO 1
 
 public class alReves {
-    
+        
     public static void main(String[] args) {
+    
 
     Scanner scanner = new Scanner(System.in);
-    System.out.println("Escribe un texto");
-    String texto = scanner.nextLine();
+    String texto;
+    System.out.println("Introduce un texto");
+    texto = scanner.nextLine();
 
     StringBuilder reves = new StringBuilder(texto);
     texto = reves.reverse().toString();
@@ -29,16 +31,30 @@ public class alReves {
 
 }
 
-    public static void main(String[] args) {
-
         // EJERCICIO 2
-        String[] uno = {"CERO", "UNO"};
+public class matriz {
 
-        for (int i = 0; i < uno.length; i++) {
-            System.out.println("Posicion del array " + i + " contiene el valor " + uno[i]);
+    public static void main(String[] args) {
+        
+
+        String[] strings = {"Hola", "Que", "Tal"}; 
+
+            for (int i = 0; i < strings.length; i++) {
+
+            System.out.println("Posicion " + i + " de " + strings[i]);
         }
 
+    }
+    
+}
+
+
         // EJERCICIO 3
+public class matrizDoble {
+
+    public static void main(String[] args) {
+        
+
         int[][] enteros = new int[2][2];
         enteros[0][0] = 1;
         enteros[0][1] = 2;
@@ -48,23 +64,34 @@ public class alReves {
 
         for (int i = 0; i < enteros.length; i++) {
             for (int j = 0; j < enteros[i].length; j++) {
-                System.out.println("Posición: [" + i + "][" + j + "] y contiene el valor " + enteros[i][j]);
-            }
+
+            System.out.println("Posicion:   [" + i + "]  [" + j + "] de " + enteros[i][j]);
         }
+    }
+    }
+    
+}
 
         // EJERCICIO 4
-        Vector<Integer> bector = new Vector<>();
+public class vector {
 
-        bector.add(1);
-        bector.add(2);
-        bector.add(3);
-        bector.add(4);
-        bector.add(5);
+    public static void main(String[] args) {
+        
+    
+    Vector<Integer> bector =  new Vector<>();
+    bector.add(1);
+    bector.add(2);
+    bector.add(3);
+    bector.add(4);
+    bector.add(5);
 
-        bector.remove(1);
-        bector.remove(1);
+    bector.remove(1);
+    bector.remove(1);
 
-        System.out.println("EL vector ahora es: " + bector);
+    System.out.println(bector);
+    
+}
+}
 
         // EJERCICIO 5
 
@@ -74,94 +101,115 @@ public class alReves {
 
 
         // EJERCICIO 6
-        ArrayList<String> lista = new ArrayList<>();
-        lista.add("Uno");
-        lista.add("Dos");
-        lista.add("Tres");
-        lista.add("Cuatro");
+public class arrayList {
 
-        LinkedList<String> listaEnlazada = new LinkedList<>(lista);
+    public static void main(String[] args) {
+        
 
-        for (String elemento : listaEnlazada) {
-            System.out.println("Elemento actual en la lista enlazada: " + elemento);
+        ArrayList<String> aray =  new ArrayList<>();
+        aray.add("Aa");
+        aray.add("Bb");
+        aray.add("Cc");
+
+        LinkedList<String> link =  new LinkedList<>(aray);
+
+        System.out.println(link);
+        
+        for (String elemento : link) {
+            System.out.println(elemento);
         }
+    }
+    
+}
 
         // EJERCICIO 7
-        ArrayList<Integer> numeros = new ArrayList<>();
+public class arayListInt {
 
-
+    public static void main(String[] args) {
+        
+        ArrayList<Integer> entero = new ArrayList<>();
+        
         for (int i = 0; i < 11; i++) {
-            numeros.add(i);
-            }
-        // Eliminar los números pares del ArrayList
-        Iterator<Integer> iter = numeros.iterator();
-        while (iter.hasNext()) {
-            int numero = iter.next();
-            if (numero % 2 == 0) {
-                iter.remove();
-            }
+            entero.add(i);
         }
 
-        for (int numero : numeros) {
-            System.out.println(numero);
+        Iterator<Integer> iter = entero.iterator(); 
+        while (iter.hasNext()); {
+        int enteros = iter.next();
+        if (enteros % 2 == 0); {
+            iter.remove();
         }
+        System.out.println(entero);
+        }
+
+        for (int enteros : entero) {
+            System.out.println(enteros);
+        }
+    }
+    
+}
 
         // EJERCICIO 8
+public class tryCatch {
+
+    private static int Dividir(int a, int b) throws ArithmeticException {
+        return a / b;
+    }
+
+    public static void main(String[] args) {
 
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Introduce dos números: ");
+        System.out.println("Ingresa dos numeros a dividir: ");
 
-        int numero1 = scanner.nextInt();
-        int numero2 = scanner.nextInt();
+        System.out.print("Numero 1: ");
+        int a = scanner.nextInt();
+
+        System.out.print("Numero 2: ");
+        int b = scanner.nextInt();
 
         try {
-            int resultado = numero1 / numero2;
-            System.out.println("El resultado es: " + resultado);
+            System.out.println("Resultado: " + Dividir(a, b));
         } catch (ArithmeticException e) {
-            System.out.println("¡No se puede dividir por cero!");
+            System.out.println("Esta division no es posible");
+        } finally {
+            System.out.println("Demo de código");
         }
-
-        try {
-            InputStream fileIn = new FileInputStream("/etc/passwd");
-
-            try {
-                byte[] datos = fileIn.readAllBytes();
-                for (byte dato : datos) {
-                    System.out.print((char) dato);
-                }
-                fileIn.close();
-
-            } catch (IOException e) {
-                System.out.println("No puedo leerlo: " + e.getMessage());
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("Fichero no encontrado: " + e.getMessage());
-        }
+    }
+    
+}
 
 
         // EJERCICIO 9
 
-        public static void copyFile (String fileIn; String fileOut){
-            try (InputStream inputStream = new FileInputStream(fileIn);
-                 PrintStream printStream = new PrintStream(new FileOutputStream(fileOut))) {
-                byte[] buffer = new byte[10];
-                int bytesRead;
-                while ((bytesRead = inputStream.read(buffer)) != -1) {
-                    printStream.write(buffer, 0, bytesRead);
-                }
-                System.out.println("Archivo copiado exitosamente.");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+public class copiarFicheros {
 
+    public static void main(String[] args) {
+        
 
-        public static void main(String[] args) {
-            String fileIn = "Desktop\\Nuevo Text Document (2).txt";
-            String fileOut = "Desktop\\Nuevo Text Document (3).txt";
-            copyFile(Path.of(fileIn), Path.of(fileOut));
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingresa el fichero de origen");
+        String fileIn = scanner.nextLine();
+        System.out.println("Ingresa el fichero de destino");
+        String fileOut = scanner.nextLine();
+        copiar(fileIn, fileOut);
+    }
+
+    private static void copiar(String fileIn, String fileOut) {
+        try {
+            InputStream in = new FileInputStream(fileIn);
+            byte[] datos = in.readAllBytes();
+            in.close();
+
+            PrintStream out = new PrintStream(fileOut);
+            out.write(datos);
+            out.close();
+        } catch (Exception e) {
+            System.out.println("Excepcion: " + e.getMessage());
         }
+    }
+    
+}
 
         // EJERCICIO 10
 
