@@ -212,35 +212,41 @@ public class copiarFicheros {
 }
 
         // EJERCICIO 10
+        // Hize un programa que funciona como regisro de pedidos de comida
 
+public class invento {
 
-        try {
+    public static void main(String[] args) {
+        
+
+         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             PrintStream printStream = new PrintStream(System.out);
             Map<String, List<String>> dataStorage = new HashMap<>();
 
             while (true) {
-                printStream.println("Ingrese una clave (o 'salir' para terminar):");
+                printStream.println("Ingrese una comida (o 'salir' para terminar):");
                 String key = reader.readLine();
 
                 if (key.equalsIgnoreCase("salir")) {
                     break;
                 }
 
-                printStream.println("Ingrese un valor:");
+                printStream.println("Ingrese la cantidad:");
                 String value = reader.readLine();
 
                 List<String> values = dataStorage.getOrDefault(key, new ArrayList<>());
                 values.add(value);
                 dataStorage.put(key, values);
+                System.out.println("Pedido");
             }
 
-            printStream.println("Datos almacenados:");
+            printStream.println("Tu pedido es:");
             for (Map.Entry<String, List<String>> entry : dataStorage.entrySet()) {
                 String key = entry.getKey();
                 List<String> values = entry.getValue();
-                printStream.println("Clave: " + key);
-                printStream.println("Valores:");
+                printStream.println("Comida: " + key);
+                printStream.println("Cantidad:");
                 for (String value : values) {
                     printStream.println("- " + value);
                 }
@@ -253,3 +259,4 @@ public class copiarFicheros {
 
         }
 }
+
